@@ -16,7 +16,7 @@ for i, line in enumerate(content):
     items = line.split()
     topic = items[0]
     pid = items[2]
-    label = "yes" if items[3] else "no"
+    label = "yes" if items[3]=="1" else "no"
     topics["Topic"].append(topic)
     topics["PID"].append(pid)
     topics["label"].append(label)
