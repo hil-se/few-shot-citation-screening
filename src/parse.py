@@ -39,7 +39,6 @@ for i, line in enumerate(content):
     topic = items[0]
     pid = items[2]
     label = "yes" if items[3]=="1" else "no"
-    pidstr.append(pid)
     if topic!= pre_topic:
         if type(topics) != type(None):
             topics = crawl(pidstr, topics)
@@ -48,6 +47,7 @@ for i, line in enumerate(content):
             topics.to_csv("../abs_data/"+pre_topic+".csv", index=False)
         topics = {"Topic": [], "PID": [], "Document Title": [], "Abstract": [], "label": []}
         pre_topic = topic
+    pidstr.append(pid)
     topics["Topic"].append(topic)
     topics["PID"].append(pid)
     topics["label"].append(label)
