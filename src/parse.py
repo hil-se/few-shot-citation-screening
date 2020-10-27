@@ -53,7 +53,7 @@ for i, line in enumerate(content):
     topics["label"].append(label)
 
 
-    if i % batchsize == batchsize - 1 or i == len(content) - 1:
+    if i % batchsize == batchsize - 1:
         topics = crawl(pidstr, topics)
         pidstr = []
 topics = crawl(pidstr, topics)
