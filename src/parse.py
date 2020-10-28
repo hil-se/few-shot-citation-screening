@@ -3,6 +3,7 @@ import pandas as pd
 import urllib3
 import time
 import random
+import os
 
 def crawl(pidstr, topics):
     qref = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=' + ','.join(
@@ -31,12 +32,16 @@ input = "../train_data/qrel_abs_train"
 with open(input, "r") as f:
     content = f.readlines()
 
+seen = set([file.split(".csv")[0] for file in os.listdir("../abs_data")])
+
 topics = None
 pidstr = []
 pre_topic = None
 for i, line in enumerate(content):
     items = line.split()
     topic = items[0]
+    if topic in seen:
+        continue
     pid = items[2]
     label = "yes" if items[3]=="1" else "no"
     if topic!= pre_topic:
