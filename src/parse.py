@@ -4,6 +4,7 @@ import urllib3
 import time
 import random
 import os
+import numpy as np
 
 def crawl(pidstr, topics):
     qref = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=' + ','.join(
@@ -17,13 +18,17 @@ def crawl(pidstr, topics):
         text = texts[:ind]
         texts = texts[ind + len(target) + 26:]
         try:
-            title = text.split("\n\n")[1].replace("\n", " ").replace("  ", " ")
+            parts = text.split("\n\n")
         except:
             set_trace()
-        abstract = text.split("\n\n")[3].replace("\n", " ").replace("  ", " ")
+        title = parts[1].replace("\n", " ").replace("  ", " ")
+        abs_pos = np.argmax([len(part) for part in parts])
+        if abs_pos <= 1:
+            abstract = ""
+        else:
+            abstract = parts[abs_pos].replace("\n", " ").replace("  ", " ")
         topics["Document Title"].append(title)
         topics["Abstract"].append(abstract)
-    pidstr = []
     time.sleep(random.randint(5, 10))
     return topics
 
