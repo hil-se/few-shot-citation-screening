@@ -16,4 +16,3 @@ Aug 2020 | [repo](https://github.com/hil-se/few-shot-citation-screening)
 This project aims to improve efficiency of information retrieval with a combination of few-shot learning and active learning.
  - When a deep neural network model learns to retrieve different relevant information (of the same type, e.g. literature reviews of different topics), it optimizes its inner structure so that it will learn faster and better to retrieve new, unseen information.
  - Active learning is also important in retrieving new, unseen information by (1) continuously learning from human decisions on which is relevant and (2) suggesting what should be reviewed next based on the learned model.
-Better self-admitted technical debt identification with adaptive CNN.
