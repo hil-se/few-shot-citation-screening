@@ -14,7 +14,7 @@
 
 ### Few-shot Active Learning for Better Information Retrieval
 
-Aug 2020 | [repo](https://github.com/hil-se/few-shot-citation-screening)
+Aug 2020 | [repo](https://github.com/hil-se/few-shot-citation-screening#top)
 
 This project aims to improve efficiency of information retrieval with a combination of few-shot learning and active learning.
  - When a deep neural network model learns to retrieve different relevant information (of the same type, e.g. literature reviews of different topics), it optimizes its inner structure so that it will learn faster and better to retrieve new, unseen information.
